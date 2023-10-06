@@ -13,8 +13,33 @@
         sort_file_byname: sort_file_byname {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LEFT_ALT &kp LGUI &kp NUMBER_1>;
+            bindings
+                = <&macro_press &kp LEFT_ALT>
+                , <&macro_press &kp LGUI>
+                , <&macro_tap &kp NUMBER_1>
+                //, <&macro_release &kp LSHFT>
+                ;
             label = "SORT_FILE_BYNAME";
+        };
+        screenshot_full: screenshot_full {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LGUI>
+                , <&macro_press &kp LSHIFT>
+                , <&macro_tap &kp NUMBER_3>
+                ;
+            label = "SCREENSHOT_FULL";
+        };
+        screenshot_edit: screenshot_edit {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LGUI>
+                , <&macro_press &kp LSHIFT>
+                , <&macro_tap &kp NUMBER_4>
+                ;
+            label = "SCREENSHOT_EDIT";
         };
     };
 
@@ -64,7 +89,7 @@
             bindings = <
 &trans  &kp EXCL  &kp AT    &kp HASH      &kp DLLR    &kp PRCNT          &kp CARET         &kp AMPS   &kp STAR      &kp LPAR  &kp RPAR  &trans
 &trans  &kp LGUI  &kp LALT  &kp LCTRL     &kp TAB     &kp CAPSLOCK       &kp MINUS         &kp EQUAL  &kp LBKT      &kp RBKT  &kp BSLH  &trans
-&trans  &trans    &trans    &trans        &kp DELETE  &kp BACKSPACE      &kp UNDER         &kp PLUS   &kp LBRC      &kp RBRC  &kp PIPE  &trans
+&trans  &sort_file_byname    &screenshot_full    &screenshot_edit        &kp DELETE  &kp BACKSPACE      &kp UNDER         &kp PLUS   &kp LBRC      &kp RBRC  &kp PIPE  &trans
                             &mt LGUI TAB  &trans      &mt LCTRL ENTER    &mt LSHIFT SPACE  &trans     &mt LALT ESC
             >;
         };
