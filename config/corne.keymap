@@ -9,6 +9,15 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+    macros {
+        sort_file_byname: sort_file_byname {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_ALT &kp LGUI &kp NUMBER_1>;
+            label = "SORT_FILE_BYNAME";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
